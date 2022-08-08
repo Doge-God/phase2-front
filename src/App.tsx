@@ -1,12 +1,14 @@
 import React from 'react';
 import {useState} from 'react';
 import './index.css';
+import axios from "axios";
 
 function App() {
 
-  const IP_API_BASE_URL = "https://ipinfo.io/";
+  const IP_API_BASE_URL = "https://ipinfo.io";
 
   const [ipBarInput, setIpBarInput] = useState("");
+  const [ipResult, setIpResult] = useState({});
 
   return (
     <div>
@@ -26,7 +28,9 @@ function App() {
 
   function searchIp() {
     alert(ipBarInput);
-    console.log(ipBarInput);
+    axios.get(IP_API_BASE_URL + "/" + ipBarInput + "?token=54370b3dbd9873")
+      .then((result) => {setIpResult(result)} );
+    console.log(ipResult);
   }
 }
 
