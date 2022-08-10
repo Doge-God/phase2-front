@@ -72,6 +72,7 @@ function App() {
   );
 
   function searchIp() {
+    //NOTE: token only written plain here for marking purposes.
     axios.get(IP_API_BASE_URL + "/" + ipBarInput + "?token=54370b3dbd9873", {validateStatus: () => true})
       .then((result) => {setIpResult(result)} );
     console.log(ipResult);
